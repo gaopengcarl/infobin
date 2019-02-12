@@ -1,15 +1,30 @@
-¿ÉÒÔ·ÖÎöbinlog µÄÒ»Ğ©ĞÅÏ¢±ÈÈç£º
-1¡¢ÊÇ·ñÓĞ³¤ÆÚÎ´Ìá½»µÄÊÂÎï 
-2¡¢ÊÇ·ñÓĞ´óÊÂÎï 
-3¡¢Ã¿¸ö±íÉú³ÉÁË¶àÉÙÈÕÖ¾ 
-4¡¢Éú³ÉËÙ¶È¡£
+å¯ä»¥åˆ†æbinlog çš„ä¸€äº›ä¿¡æ¯æ¯”å¦‚ï¼š
+1ã€æœ¬binlogä¸­æ˜¯å¦æœ‰é•¿æœŸæœªæäº¤çš„äº‹ç‰© 
+2ã€æœ¬binlogä¸­æ˜¯å¦æœ‰å¤§äº‹ç‰© 
+3ã€æœ¬binlogä¸­æ¯ä¸ªè¡¨ç”Ÿæˆäº†å¤šå°‘binlog 
+4ã€æœ¬binlogä¸­binlogç”Ÿæˆé€Ÿåº¦ã€‚
 
 ./infobin  mysql-bin.001793 20 2000000 10 -t >log1793.log
 
-µÚÒ»¸ö20 ÊÇ·ÖÆ¬ÊıÁ¿,½«binlog·ÖÎª´óĞ¡ÏàµÈµÄÆ¬¶Î£¬Éú³ÉÊ±¼äÔ½¶ÌÔòÕâ¶ÎÊ±¼äÉú³ÉbinlogÁ¿Ô½´ó£¬ÔòÊÂÎïÔ½Æµ·±¡£
-µÚ¶ş¸ö2000000 ÊÇ´óÓÚ2M×óÓÒµÄÊÂÎï¶¨ÒåÎª´óÊÂÎï¡£
-µÚÈı¸ö10 ÊÇ´óÓÚ10ÃëÎ´Ìá½»µÄÊÂÎï¶¨ÒåÎª³¤ÆÚÎ´Ìá½»µÄÊÂÎï¡£ 
+ç¬¬ä¸€ä¸ª20 æ˜¯åˆ†ç‰‡æ•°é‡,å°†binlogåˆ†ä¸ºå¤§å°ç›¸ç­‰çš„ç‰‡æ®µï¼Œç”Ÿæˆæ—¶é—´è¶ŠçŸ­åˆ™è¿™æ®µæ—¶é—´ç”Ÿæˆbinlogé‡è¶Šå¤§ï¼Œåˆ™äº‹ç‰©è¶Šé¢‘ç¹ã€‚
+ç¬¬äºŒä¸ª2000000 æ˜¯å¤§äº2Må·¦å³çš„äº‹ç‰©å®šä¹‰ä¸ºå¤§äº‹ç‰©ã€‚
+ç¬¬ä¸‰ä¸ª10 æ˜¯å¤§äº10ç§’æœªæäº¤çš„äº‹ç‰©å®šä¹‰ä¸ºé•¿æœŸæœªæäº¤çš„äº‹ç‰©ã€‚ 
+ç¬¬å››ä¸ª-t ä»£è¡¨ä¸åšè¯¦ç»†eventè§£æè¾“å‡ºï¼Œä»…ä»…è·å–ç›¸åº”çš„ç»“æœ
 
 
-Ö»ÄÜÓÃÓÚbinlog ²»ÄÜÓÃÓÚrelaylog¡£×îºÃ½«binlog¿½±´ÆäËû»úÆ÷Ö´ĞĞ£¬²»ÒªÔÚÉú²ú·şÎñÆ÷ÅÜ
-×îºÃÊÇ5.6 5.7 row¸ñÊ½binlog
+åªèƒ½ç”¨äºbinlog ä¸èƒ½ç”¨äºrelaylogã€‚æœ€å¥½å°†binlogæ‹·è´å…¶ä»–æœºå™¨æ‰§è¡Œï¼Œä¸è¦åœ¨ç”Ÿäº§æœåŠ¡å™¨è·‘
+æœ€å¥½æ˜¯5.6 5.7 rowæ ¼å¼binlog
+
+ä¸‹é¢æ˜¯è¯¦ç»†çš„ç”¨æ³•ï¼š
+
+[root@gp1 infobin]# ./infobin 
+USAGE ERROR!
+[Author]: gaopeng [QQ]:22389860 [blog]:http://blog.itpub.net/7728585/ 
+--USAGE:./infobin binlogfile pieces bigtrxsize bigtrxtime [-t] [-force]
+[binlogfile]:binlog file!
+[piece]:how many piece will split,is a Highly balanced histogram,
+        find which time generate biggest binlog.(must:piece<2000000)
+[bigtrxsize](bytes):larger than this size trx will view.(must:trx>256(bytes))
+[bigtrxtime](sec):larger than this sec trx will view.(must:>0(sec))
+[[-t]]:if [-t] no detail is print out,the result will small
+[[-force]]:force analyze if unkown error check!!
